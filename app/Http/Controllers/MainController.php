@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -18,8 +19,13 @@ class MainController extends Controller
         return view('index',compact('products'));
     }
     public function show($id){
-        $product = Product::find($id);
-        return view('main.show',compact('product'));
+        if(Auth::check()){
+            $product = Product::find($id);
+            return view('main.show',compact('product'));
+        }
+        else{
+            return redirect()->route('login')->with('danger', 'Авторизуйтесь чтобы купить товар!');
+        }
     }
 
     

@@ -12,13 +12,13 @@ class AuthenController extends Controller
     public function login(){
         $this->middleware('guest');
         if(Auth::check() && Auth::user()->role_id==2) return redirect()->route('products.index');
-        else if(Auth::check() && Auth::user()->role_id == 1) return redirect()->route('main');
+        else if(Auth::check() && Auth::user()->role_id == 0) return redirect()->route('main');
         else return view('auth.login');
     }
     public function register(){
         $this->middleware('guest');
         if(Auth::check() && Auth::user()->role_id==2) return redirect()->route('products.index');
-        else if(Auth::check() && Auth::user()->role_id == 1) return redirect()->route('main');
+        else if(Auth::check() && Auth::user()->role_id == 0) return redirect()->route('main');
         else return view('auth.register');
     }
     public function authenticate(Request $request)
@@ -27,7 +27,7 @@ class AuthenController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
             if(Auth::user()->role_id==0)
-                return redirect()->intended('cabinet');
+                return redirect()->intended('main');
                 if(Auth::user()->role_id==2)
                 return redirect()->intended('products');
         }
