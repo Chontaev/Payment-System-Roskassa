@@ -23,7 +23,6 @@ class AuthenController extends Controller
     }
     public function authenticate(Request $request)
     {
-
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             $request->session()->regenerate();
             if(Auth::user()->role_id==0)

@@ -2,15 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Пользовательские страницы
+
 Route::get('/','App\Http\Controllers\MainController@index')->name('index');
 
-// Route::post('/','App\Http\Controllers\PaymentController@setData')->name('setData');
+Route::resource('main',App\Http\Controllers\MainController::class);
 
 Route::get('payment','App\Http\Controllers\PaymentController@payment')->name('payment');
 
-Route::post('getPay','App\Http\Controllers\PaymentController@getData')->name('getPay');
+//Ответы от Roskassa
 
-Route::resource('main',App\Http\Controllers\MainController::class);
+Route::post('success',function(){return view('main.success');})->name('success');
+
+Route::post('fail',function(){return view('main.fail');})->name('fail');
+
+// Авторизация 
 
 Route::get('login','App\Http\Controllers\AuthenController@login')->name('login');
 
@@ -22,10 +28,9 @@ Route::post('store','App\Http\Controllers\AuthenController@store')->name('store'
 
 Route::post('authenticate','App\Http\Controllers\AuthenController@authenticate')->name('authenticate');
 
-Route::get('/success', function(){
-    return view('success');
-});
+Route::post('getPay','App\Http\Controllers\PaymentController@getData')->name('getPay');
 
+//Админка
 Route::group(
     ['middleware' => ['admin']],
     function(){
