@@ -3,8 +3,7 @@
     
   <div class="container mt-5 col-9 mx-auto">
     <div class="d-flex align-items-center justify-content-between">
-      <h2>Править товары</h2>
-      <a href="{{route('products.create')}}" class="btn btn-primary">создать товар</a>
+      <h2>Пользователи<h2>
     </div>
     <table class="table table-striped pt-5 mt-5">
       <thead>
@@ -21,7 +20,11 @@
           <tr>
             <th scope="row">{{$user->id}}</th>
             <td>{{$user->email}}</td>
-            <td>{{$user->role}}</td>
+            <td>
+              @if($user->role_id==0) Пользователь
+              @else Админ
+              @endif
+              </td>
             <td>
               <form action="{{route('users.destroy',$user->id)}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">

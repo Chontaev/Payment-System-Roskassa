@@ -5,7 +5,7 @@
     </div>
   <div class="container mt-5 col-4 mx-auto border p-4">
     <h2>Оплата товара</h2>
-    <form method="POST" action="{{route('getPay')}}">
+    <form method="post" action="{{route('getPay')}}">
       <input type="hidden" name="_method" value="post">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <input type="hidden" name="email" value="{{Auth::user()->email}}">

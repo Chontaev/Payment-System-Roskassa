@@ -31,4 +31,16 @@ class PaymentController extends Controller
            $payment->paymnet_done=true; 
        }
     }
+    public function show(){
+        $payments = Payment::all();
+        return view('payments.index', compact('payments'));
+    }
+    public function payed(){
+        $payments = Payment::all();
+        return view('payments.payed', compact('payments'));
+    }
+    public function notPayed(){
+        $payments = Payment::all();
+        return view('payments.notpayed', compact('payments'));
+    }
 }

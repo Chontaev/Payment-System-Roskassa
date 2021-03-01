@@ -8,8 +8,6 @@ Route::get('/','App\Http\Controllers\MainController@index')->name('index');
 
 Route::resource('main',App\Http\Controllers\MainController::class);
 
-Route::get('payment','App\Http\Controllers\PaymentController@payment')->name('payment');
-
 //Ответы от Roskassa
 
 Route::post('success',function(){return view('main.success');})->name('success');
@@ -45,7 +43,10 @@ Route::group(
         );
         Route::resource(
             'users', \App\Http\Controllers\UserController::class
-    );
+        );
+        Route::get('paymentList','App\Http\Controllers\PaymentController@show')->name('paymentList');
+        Route::get('paymentListPayed','App\Http\Controllers\PaymentController@payed')->name('paymentListPayed');
+        Route::get('paymentListNotPayed','App\Http\Controllers\PaymentController@notPayed')->name('paymentListNotPayed');
     
 });
 

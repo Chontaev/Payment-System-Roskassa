@@ -1,7 +1,7 @@
 @extends('loyauts.app')
 @section('content')
     <div class="col-5  mx-auto pt-5 mt-5">
-    <form method="post"id="submit" action="https://pay.roskassa.net/form/">
+    <form method="post" id="submit" action="https://pay.roskassa.net/form/">
       <input type="hidden" name="_method" value="post">
       <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <input type="hidden" name="email" value="{{Auth::user()->email}}">

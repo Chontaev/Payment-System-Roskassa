@@ -27,7 +27,8 @@
 <div class="d-flex px-5">
   <a class="navbar text-white" href="{{route('index')}}">Main</a>
   <a class="navbar text-white" href="{{route('products.index')}}">Products</a>
-  <a class="navbar text-white" href="{{route('logout')}}">Users</a>
+  <a class="navbar text-white" href="{{route('paymentList')}}">Payments</a>
+  <a class="navbar text-white" href="{{route('users.index')}}">Users</a>
 </div>
 <a class="navbar text-white pr-5" href="{{route('logout')}}">Logout</a>
 </nav>
