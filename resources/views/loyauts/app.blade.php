@@ -10,20 +10,20 @@
 </head>
 <body>
   @if (session('danger'))
-            <div class="text-danger pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
-                <li>{{ session('success') }}</li>
+            <div class="modal text-danger pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
+                <li>{{ session('danger') }}</li>
             </div>
         @endif
     @if (session('success'))
-    <div class="text-success pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
+    <div class="modal text-success pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
         <li>{{ session('success') }}</li>
     </div>
     @endif
         @if ($errors->any())
-            <div class="flex posaition items-center justify-center bg-gray-50 ">
+          <div class="modal text-danger pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <h3>{{ $error }}</h3> 
+                        <li>{{ $error }}</li> 
                     @endforeach
                 </ul>
             </div>

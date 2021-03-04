@@ -84,6 +84,6 @@ class UserController extends Controller
         $user = User::find($id);
         $user->active = 0;
         $user->save();
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('success','Пользователь успешно удален!');;
     }
 }

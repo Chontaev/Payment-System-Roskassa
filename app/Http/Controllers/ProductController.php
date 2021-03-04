@@ -90,6 +90,6 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->active = 0;
         $product->save();
-        return redirect()->route('products.index');
+        return redirect()->route('products.index')->with('success','Запсиь успешно удалена!');;
     }
 }

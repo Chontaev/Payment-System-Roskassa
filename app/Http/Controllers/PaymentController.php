@@ -12,7 +12,7 @@ class PaymentController extends Controller
         return view('payment');
     }
     public function getData(Request $request){
-        $data = $request;
+        
         $payment = new Payment();
         $payment->email = $request->email;
         $payment->shop_id = $request->shop_id;
@@ -22,7 +22,6 @@ class PaymentController extends Controller
         $payment->sign = $request->sign;
         $payment->amount = $request->amount;
         $payment->save();
-        return view('payment',compact('data'));
     }
     public function setData(Request $request)
     {
