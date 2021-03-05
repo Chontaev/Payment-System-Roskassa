@@ -27,7 +27,7 @@
             <td>{{$payment->amount}}  {{$payment->currency}}</td>
             <td>{{$payment->order_id}}</td>
             <td>
-              @if($payment->paymnet_done) Оплатили
+              @if($payment->payment_done==1) Оплатили
               @else Не оплатили</td>
               @endif
           </tr>

@@ -18,7 +18,7 @@
       </thead>
       <tbody>
         @foreach ($payments as $payment)
-          @if (!$payment->paymnet_done)
+          @if (!$payment->payment_done)
             <tr>
               <th scope="row">{{$payment->id}}</th>
               <td>{{$payment->email}}</td>

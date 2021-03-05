@@ -10,17 +10,17 @@
 </head>
 <body>
   @if (session('danger'))
-            <div class="modal text-danger pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
+            <div class="text-danger pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
                 <li>{{ session('danger') }}</li>
             </div>
         @endif
     @if (session('success'))
-    <div class="modal text-success pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
+    <div class="text-success pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
         <li>{{ session('success') }}</li>
     </div>
     @endif
         @if ($errors->any())
-          <div class="modal text-danger pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
+          <div class="text-danger pt-5 mt-5 mx-5 px-5" style="position:absolute;" role="alert">
                 <ul>
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li> 

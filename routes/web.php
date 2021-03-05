@@ -1,18 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Payment;
 //Пользовательские страницы
 
 Route::get('/','App\Http\Controllers\MainController@index')->name('index');
 
 Route::resource('main',App\Http\Controllers\MainController::class);
+Route::get('ppp',function(){
+  return view('success1');});
 
 //Ответы от Roskassa
 
-Route::post('success',function(){return view('main.success');})->name('success');
+Route::post('response','App\Http\Controllers\PaymentController@setData')->name('setData');
+Route::get('success',function(){return view('main.success');})->name('success');
 
-Route::post('fail',function(){return view('main.fail');})->name('fail');
+Route::get('fail',function(){return view('main.fail');})->name('fail');
 
 // Авторизация 
 
